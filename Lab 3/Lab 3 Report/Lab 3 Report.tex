@@ -1,0 +1,270 @@
+\documentclass[letterpaper, 10pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage[left=2.35cm,top=2.45cm,bottom=2.45cm,right=2.35cm,letterpaper]{geometry}
+\usepackage{amsmath}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C,CO]{\thepage}
+\fancyhead[L,LO]{\bfseries EECS 301}
+\fancyhead[C,CO]{\bfseries Lab 3}
+\fancyhead[R,RO]{Summer 2016}
+
+	\newenvironment{dq}{\textbf{Design Questions}}
+	
+	\newenvironment{q1}{\noindent Question 1:}
+	
+	\newenvironment{a1}{\noindent}
+	
+	\newenvironment{q2}{\noindent Question 2:}
+	
+	\newenvironment{a2}{\noindent}
+	
+	\newenvironment{q3}{\noindent Question 3:}
+	
+	\newenvironment{a3}{\noindent}
+	
+	\newenvironment{q4}{\noindent Question 4:}
+	
+	\newenvironment{a4}{\noindent}
+	
+	\newenvironment{q5}{\noindent Question 5:}
+	
+	\newenvironment{a5}{\noindent}
+	
+	\newenvironment{q6}{\noindent Question 6:}
+	
+	\newenvironment{a6}{\noindent}
+	
+	\newenvironment{q7}{\noindent Question 7:}
+	
+	\newenvironment{a7}{\noindent}
+	
+	\newenvironment{req}{\noindent \textbf{Response Requirments}}
+	
+	\newenvironment{r1}{\noindent Requirement 1:}
+		
+	\newenvironment{ra1}{\noindent}
+	
+	\newenvironment{r2}{\noindent Requirement 2:}
+		
+	\newenvironment{ra2}{\noindent}
+	
+	\newenvironment{r3}{\noindent Requirement 3:}
+		
+	\newenvironment{ra3}{\noindent}
+	
+\begin{document}
+	\noindent
+	Andrew Covarrubias (axc554)
+	\\
+	Jonathan Monreal (jem177)
+	\bigskip
+	\bigskip
+	\\
+	\begin{dq}
+		
+		\bigskip
+		
+		\begin{q1}
+			\\
+			\textbf{
+					What is the minimum required DAC sample rate to achieve the frequency output
+					requirements? Hint: look up the Nyquist Sampling Theorem.
+			}
+			
+		\end{q1}
+		
+		\bigskip
+		
+		\begin{a1}
+			
+			According to the Nyquist sampling theorem, the sample rate must always be at least double the highest frequency. So in our case the top end of the frequency is 20 kHz which would give us a sampling rate of 40,000  samples per second.
+			 
+			
+		\end{a1}
+		
+		\bigskip
+		
+		\begin{q2}
+			\\
+			\textbf{
+					At the DAC's maximum serial clock frequency, what is the maximum single-channel
+					sample rate using the write-and-update command while still meeting the delay-after update
+					requirement? Reference which parameters in the data sheet are needed to
+					determine this specification. Hint: determine the data period first.
+			}
+		\end{q2}
+		
+		\bigskip
+		
+		\begin{a2}
+			
+			The max clock frequency of 50Hz results in a clock time of 20 nano seconds which goes through 32 cycles and as a result ends up at 640 nanoseconds. Taking into account the 1.9 microseconds required by the data sheet, the total time will now be 2.54 microsceonds which gives a max sample rate of 396 KHz.
+			
+		
+		\end{a2}
+		
+		\bigskip
+		
+		\begin{q3}
+			\\
+			\textbf{
+				What sample rate does your design use? How does this affect the appearance of the DAC
+				output at higher frequencies?
+				}
+		\end{q3}
+		
+		\bigskip
+		
+		\begin{a3}
+			
+			Our design uses a sample rate of 48.8 KHz, which will cause higher frequencies to appear more easily. 
+			 
+		\end{a3}
+		
+		\bigskip
+		
+		\begin{q4}
+			\\
+			\textbf{
+					What are the GPIO signals used to connect to the pins of the DAC interface? Use the
+					expansion board schematic and the GPIO documentation page on Blackboard.
+				}
+		\end{q4}
+		
+		\bigskip
+		
+		\begin{a4}
+			
+			The correct pins appear to be\\
+			
+			GPIO\_[9] which is DAC\_in\\ 
+			
+			GPIO\_[8] which is DAC clock signal\\
+	
+			GPIO\_[11] which is DAC LDAC\\
+			
+			GPIO\_[10] which is DAC sync singal\\
+		  
+		\end{a4}
+		
+		\bigskip
+		
+		\begin{q5}
+			\\
+			\textbf{
+				For your mono-channel output, which DAC command does your design use?
+			}
+		\end{q5}
+		
+		\bigskip
+		
+		\begin{a5}
+              We use the DAC command 0011 which is write to and update DAC channel n
+		\end{a5}
+		
+		\bigskip		
+		
+		\begin{q6}
+			\\
+			\textbf{
+		How do you control the NCO such that each sample is sent to the DAC correctly?
+		}
+			
+		\end{q6}
+		
+		\begin{a6}
+			We have a counter which enables every 1024th clock cycle which means the data is sent the same rate at 48.8 KHz which is the same rate it is processed. 
+		       
+		\end{a6}
+		
+		\bigskip
+		
+			\begin{q7}
+				\\
+				\textbf{
+					Find the equation in the NCO datasheet that shows how to calculate sine frequency
+					versus phase increment. Since your sample rate is the effective clock rate of the NCO,
+					what range of phase increments do you need to meet the output frequency specification?
+				}
+				
+			\end{q7}
+			
+			\begin{a7}
+				 To meet the 20 Hz requirement the lower frequency must be 819.67 Hz and the upper cap at 20 KHz must output at a frequency of 819.67 KHz
+			\end{a7}
+		
+		
+	\end{dq}
+	
+	\begin{req}
+		
+		\bigskip
+		
+		\begin{r1}
+			\\
+			\textbf{
+				Discuss how your design controls the LPM\_SHIFTREG IP block
+			}
+		\end{r1}
+		
+		\bigskip
+		
+		\begin{ra1}
+			
+			As previously stated we had a counter that would go every 1024th cycle through the DAC. Serving a dual purpose, the counter would also shift every bit of the 32 bit to the right with a 0. Each bit requires its own shift meaning there are 32 bit shifts.
+			
+		\end{ra1}
+		
+		\bigskip
+		
+		\begin{r2}
+			\\
+			\textbf{
+				Describe the functionality of each module used in the design. Your signal names should
+				make sense relative to their function and correspond to the signal names used in the block
+				diagram.
+			}
+		\end{r2}
+		
+		\bigskip
+		
+		\begin{ra2}
+			values - Detects movement in the motor and changes the frequency and amplitude\\
+			
+			sync\_clock - syncs the input to the clock\\
+			
+			slow\_down - counts from 0 to 1024 for use in the DAC reading\\
+			
+			multi - allows the NCO generated sine wave to grow or decrease in size because of the amplitude\\
+			
+			shiftreg - Takes the result of the sine wave and sends it to the DAC in 32 bits which is done by a shift register.\\
+			
+			NCO\_Lab3 - generates a sine wave based on the input frequency\\
+		\end{ra2}
+		
+		\bigskip
+		
+		\begin{r3}
+			\\
+			\textbf{
+				Summarize how each group member contributed to the completion of this lab.
+			}
+		\end{r3}
+		
+		\bigskip
+		
+		\begin{ra3}
+			
+		Jon - Began programming the lab\\
+		
+		Andrew - Finished programming of the lab and report\\
+			
+		\end{ra3}
+		
+	\end{req}
+	
+	
+\end{document}

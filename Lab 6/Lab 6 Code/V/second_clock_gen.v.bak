@@ -1,0 +1,6 @@
+module second_clock_gen(clk1mhz, second_clock);
+	
+	input clk1mhz;
+	output second_clock;
+	
+	

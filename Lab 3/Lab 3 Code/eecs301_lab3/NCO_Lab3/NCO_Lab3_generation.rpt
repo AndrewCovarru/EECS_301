@@ -1,0 +1,30 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\andre\Desktop\eecs301_lab3\NCO_Lab3.qsys --block-symbol-file --output-directory=C:\Users\andre\Desktop\eecs301_lab3\NCO_Lab3 --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading eecs301_lab3/NCO_Lab3.qsys
+Progress: Reading input file
+Progress: Adding nco_ii_0 [altera_nco_ii 15.0]
+Progress: Parameterizing module nco_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: ip-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\andre\Desktop\eecs301_lab3\NCO_Lab3.qsys --synthesis=VERILOG --greybox --output-directory=C:\Users\andre\Desktop\eecs301_lab3\NCO_Lab3\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading eecs301_lab3/NCO_Lab3.qsys
+Progress: Reading input file
+Progress: Adding nco_ii_0 [altera_nco_ii 15.0]
+Progress: Parameterizing module nco_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: NCO_Lab3: Generating NCO_Lab3 "NCO_Lab3" for QUARTUS_SYNTH
+Info: nco_ii_0: "NCO_Lab3" instantiated altera_nco_ii "nco_ii_0"
+Info: NCO_Lab3: Done "NCO_Lab3" with 2 modules, 19 files
+Info: Generating third-party timing and resource estimation model ...
+Info: Done generating third-party timing and resource estimation model.
+Info: ip-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

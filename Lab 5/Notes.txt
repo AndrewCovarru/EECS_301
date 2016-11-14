@@ -1,0 +1,28 @@
+2. What size character does the supplied font ROM hold? This will be the size of a
+“character cell.”
+
+16 vertical, 8 horizontal
+
+3. What is the display’s resolution (visible pixels)?
+
+480x272
+
+4. Using the answers to the above two questions, how many complete character cells can be
+displayed in a rectangular grid on the display? How many cells are in each row? Each
+column?
+
+60 each row, 17 each column. 60 * 17 = 1020 character cells.
+
+5. How many visible pixels on the display do character cells not cover? These would be
+pixels that cannot display a complete character along the edge of the display.
+
+None?
+
+6. Using a grid of power-of-two side lengths, what size grid is needed to hold the data for
+this screen-filling array of stored characters? How many cells are unused because of the
+power-of-two addressing constraint? For example, a 3x6 grid of characters requires a 4x8
+grid of RAM storage for ease of addressing.
+
+Width: floor(log2(60) + 1) = 6
+Length: floor(log2(17) + 1) = 5
+

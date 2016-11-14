@@ -1,0 +1,15 @@
+module up_down_driver(clock, encoder_a, encoder_b, measured_speed);
+	
+	input clock, encoder_a, encoder_b;
+	output reg measured_speed;
+	
+	reg a, a2, b;
+	
+	always @(posedge clock)
+		begin
+			a <= encoder_a;
+			a2 <= a;
+			b <= encoder_b;
+		end
+	
+	

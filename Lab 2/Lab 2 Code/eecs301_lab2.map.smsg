@@ -1,0 +1,3 @@
+Warning (10268): Verilog HDL information at pwm_gen.v(10): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at up_down_counter.v(7): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at flipflops.v(9): always construct contains both blocking and non-blocking assignments

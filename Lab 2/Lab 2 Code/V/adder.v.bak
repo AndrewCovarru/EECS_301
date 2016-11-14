@@ -1,0 +1,6 @@
+module adder(clock, add_sub, a, b, result);
+	
+	input clock, add_sub;
+	input signed [7:0] a, b;
+	
+	

@@ -1,0 +1,15 @@
+module up_down_counter(clock, encoder_a, encoder_b, enable, up_down);
+	
+	input clock, encoder_a, encoder_b;
+	output reg a, b;
+	
+	always @(posedge clock)
+		begin
+			a <= encoder_a;
+			a2 <= a;
+			b <= encoder_b;
+		end
+	
+	assign a = 
+	
+endmodule

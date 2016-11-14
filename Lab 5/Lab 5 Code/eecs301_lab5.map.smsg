@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at video_position_sync.v(53): always construct contains both blocking and non-blocking assignments File: C:/Users/Jonathan/Desktop/Dropbox/Lab 5/Lab 5 Code/V/video_position_sync.v Line: 53

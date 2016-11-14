@@ -1,0 +1,263 @@
+\documentclass[letterpaper, 10pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage[left=2.35cm,top=2.45cm,bottom=2.45cm,right=2.35cm,letterpaper]{geometry}
+\usepackage{amsmath}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C,CO]{\thepage}
+\fancyhead[L,LO]{\bfseries EECS 301}
+\fancyhead[C,CO]{\bfseries Lab 2}
+\fancyhead[R,RO]{Summer 2016}
+
+	\newenvironment{dq}{\textbf{Design Questions}}
+	
+	\newenvironment{q1}{\noindent Question 1:}
+	
+	\newenvironment{a1}{\noindent}
+	
+	\newenvironment{q2}{\noindent Question 2:}
+	
+	\newenvironment{a2}{\noindent}
+	
+	\newenvironment{q3}{\noindent Question 3:}
+	
+	\newenvironment{a3}{\noindent}
+	
+	\newenvironment{q4}{\noindent Question 4:}
+	
+	\newenvironment{a4}{\noindent}
+	
+	\newenvironment{q5}{\noindent Question 5:}
+	
+	\newenvironment{a5}{\noindent}
+	
+	\newenvironment{q6}{\noindent Question 6:}
+	
+	\newenvironment{a6}{\noindent}
+	
+	\newenvironment{req}{\noindent \textbf{Response Requirments}}
+	
+	\newenvironment{r1}{\noindent Requirement 1:}
+		
+	\newenvironment{ra1}{\noindent}
+	
+	\newenvironment{r2}{\noindent Requirement 2:}
+		
+	\newenvironment{ra2}{\noindent}
+	
+	\newenvironment{r3}{\noindent Requirement 3:}
+		
+	\newenvironment{ra3}{\noindent}
+
+\begin{document}
+	\noindent
+	Andrew Covarrubias (axc554)
+	\\
+	Jonathan Monreal (jem177)
+	\bigskip
+	\bigskip
+	\\
+	\begin{dq}
+		
+		\bigskip
+		
+		\begin{q1}
+			\\
+			\textbf{
+					What is the control signal frequency specification of the motor driver used on the
+					daughter board?
+			}
+			
+		\end{q1}
+		
+		\bigskip
+		
+		\begin{a1}
+			Based on the motor driver manual, the typical signal frequency is about 30 kHz with a max of 100 kHz. 
+			
+		\end{a1}
+		
+		\bigskip
+		
+		\begin{q2}
+			\\
+			\textbf{
+		What is the chosen output frequency of your PWM generator?
+			}
+		\end{q2}
+		
+		\bigskip
+		
+		\begin{a2}
+			We decided to choose a frequency of 24.5 kHz for our PWM generator. 
+		
+		\end{a2}
+		
+		\bigskip
+		
+		\begin{q3}
+			\\
+			\textbf{
+				How frequently does your design determine the motor's rate of rotation (that is, the
+				frequency that the encoder change counter is saved and reset)?
+				}
+		\end{q3}
+		
+		\bigskip
+		
+		\begin{a3}
+			Since we decided to use a 21-bit clock for the reset, the rate of rotation can be determined to be about 23.8419 Hz.
+			 
+		\end{a3}
+		
+		\bigskip
+		
+		\begin{q4}
+			\\
+			\textbf{
+			Assuming a theoretical maximum motor speed of 6000 rpm, what is the maximum motor
+			speed your design will calculate with the provided 192 count/turn encoder attached to the
+			motor?
+				}
+		\end{q4}
+		
+		\bigskip
+		
+		\begin{a4}
+		   If the motor has  max speed of 6000 rpm with an encoder reading 192 times per turn, we get about 19200 encoder ticks per second. The maximum speed we could calculate would be based on the 8 bit counter and give a max speed of 75 kHz. 
+		\end{a4}
+		
+		\bigskip
+		
+		\begin{q5}
+			\\
+			\textbf{
+				Calculate approximately how long it takes to change the speed goal from 0 to full speed
+				in one direction if the button is held constantly.
+			}
+		\end{q5}
+		
+		\bigskip
+		
+		\begin{a5}
+              Using the time each speed is taken we can calculate how long it would take to go full speed. It takes about .0419 seconds for each change in speed and in order to go full speed it would take about 10.7374 seconds of holding down the button. 
+		\end{a5}
+		
+		\bigskip
+		
+		\begin{q6}
+			\\
+			\textbf{
+			At maximum gain, what is the measured pulse width of your motor controller
+			implementation when the goal is minimum and maximum for the free-running, enabled
+			motor?
+		}
+			
+		\end{q6}
+		
+		\begin{a6}
+		       At max gain the pulse width seems to be about 20 microseconds and at minimum it seems to be about 5 microseconds. 
+		\end{a6}
+		
+		\bigskip
+		
+		
+	\end{dq}
+	
+	\begin{req}
+		
+		\bigskip
+		
+		\begin{r1}
+			\\
+			\textbf{
+				Briefly discuss the use of each counter used in your implementation and identify which
+				module it is in.
+			}
+		\end{r1}
+		
+		\bigskip
+		
+		\begin{ra1}
+			
+			All of the counters are in their own modules.\\
+			
+			button\_clock\_generator is used to determine the rate at which holding the button will speed up the motor\\
+				
+			pwm\_clock\_generator is used to determine the waveform and how it is affected by the varying speed of the motor\\
+			
+			
+			srst\_clock\_generator is used to determine when the register is filled so that copied data can be reset\\
+			
+			
+			up\_down\_counter determines if the direction of the motor based on if it is 1 or -1\\
+			
+			
+			
+		\end{ra1}
+		
+		\bigskip
+		
+		\begin{r2}
+			\\
+			\textbf{
+				Describe the functionality of each module used in the design. Your signal names should
+				make sense relative to their function and correspond to the signal names used in the block
+				diagram.
+			}
+		\end{r2}
+		
+		\bigskip
+		
+		\begin{ra2}
+			adder - used to determine the difference between goal speed and measured speed\\
+			
+			multiplier - used to determine the product of the difference between the goal speed and measured speed, along with the gain constant\\
+			
+			button\_clock\_generator - generates the clock for the goal speed buttons\\
+			
+			duty\_cycle\_calculator - implements the adder and multiplier module in order to determine the duty cycle\\
+			
+			flipflops - used to create a positive edge detector for the motor decoder\\
+			
+			goal - creates a goal speed from the switch inputs\\
+			
+			motor\_decoder - uses the 192 count motor encoder to take in the speed from the motor\\
+			
+			pwm\_clock\_generator - generates a 24.5 kHz clock for the PWM\\
+			
+			pwm\_gen - generates a pwm based on 8-bit two's compliment duty cycle\\
+			
+			srst\_clock\_generator - generates a clock for the reset and enable function\\
+			
+			up\_down\_counter - implements a counter used in determining the direction of the motor and implements a reset\\
+			
+			velocity\_register - stores the velocity of the mode, features an enable \\
+			
+		\end{ra2}
+		
+		\bigskip
+		
+		\begin{r3}
+			\\
+			\textbf{
+				Summarize how each group member contributed to the completion of this lab.
+			}
+		\end{r3}
+		
+		\bigskip
+		
+		\begin{ra3}
+			
+			Jon -  main programmer for this lab\\
+			
+			Andrew - wrote the report and assisted Jon in debugging and writing the code\\
+			
+		\end{ra3}
+		
+	\end{req}
+	
+	
+\end{document}

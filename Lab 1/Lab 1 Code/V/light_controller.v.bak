@@ -1,0 +1,1 @@
+module light_controller(clock, l_lights, c_lights, r_lights, 

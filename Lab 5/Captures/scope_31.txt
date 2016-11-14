@@ -1,0 +1,15 @@
+Digital Threshold 
+ D0-D7:    TTL    
+
+Trigger Mode  Coupling  Noise Rej  HF Reject  Holdoff 
+  Edge  Auto     DC        Off        Off       60ns  
+
+Trigger Source   Slope   Level 
+  Edge    D2    Falling   TTL  
+
+ Time  Zoom  Time Ref  Main s/div  Delay 
+Normal  Off   Center    10.00ms/    0.0s 
+
+Acquisition Realtime  Vectors  Inf Persist 
+   Normal      On        On        Off     
+

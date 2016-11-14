@@ -1,0 +1,7 @@
+module turn_signal(clock, left, right, l_signal, r_signal, error);
+
+	input clock, left, right;
+	output reg [2:0] l_signal, r_signal;
+	output error;
+	
+endmodule

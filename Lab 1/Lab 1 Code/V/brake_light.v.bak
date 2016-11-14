@@ -1,0 +1,10 @@
+module brake_light(clock, brake, l_signal, r_signal, l_lights, c_lights, r_lights);
+
+	input clock;
+	input [2:0] l_signal, r_signal;
+	output [2:0] l_lights, r_lights;
+	output [1:0] c_lights;
+	
+	reg brake_active;
+	
+endmodule

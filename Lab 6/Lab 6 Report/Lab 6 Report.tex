@@ -1,0 +1,263 @@
+\documentclass[letterpaper, 10pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage[left=2.35cm,top=2.45cm,bottom=2.45cm,right=2.35cm,letterpaper]{geometry}
+\usepackage{amsmath}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C,CO]{\thepage}
+\fancyhead[L,LO]{\bfseries EECS 301}
+\fancyhead[C,CO]{\bfseries Lab 6}
+\fancyhead[R,RO]{Summer 2016}
+
+	\newenvironment{dq}{\textbf{Design Questions}}
+	
+	\newenvironment{q1}{\noindent Question 1:}
+	
+	\newenvironment{a1}{\noindent}
+	
+	\newenvironment{q2}{\noindent Question 2:}
+	
+	\newenvironment{a2}{\noindent}
+	
+	\newenvironment{q4}{\noindent Question 4:}
+	
+	\newenvironment{a4}{\noindent}
+	
+	\newenvironment{q5}{\noindent Question 5:}
+	
+	\newenvironment{a5}{\noindent}
+	
+	\newenvironment{q6}{\noindent Question 6:}
+	
+	\newenvironment{a6}{\noindent}
+	
+	\newenvironment{q7}{\noindent Question 7:}
+	
+	\newenvironment{a7}{\noindent}
+	
+	\newenvironment{req}{\noindent \textbf{Response Requirments}}
+	
+	\newenvironment{r1}{\noindent Requirement 1:}
+		
+	\newenvironment{ra1}{\noindent}
+	
+	\newenvironment{r2}{\noindent Requirement 2:}
+		
+	\newenvironment{ra2}{\noindent}
+	
+	\newenvironment{r3}{\noindent Requirement 3:}
+		
+	\newenvironment{ra3}{\noindent}
+	
+\begin{document}
+	\noindent
+	Andrew Covarrubias (axc554)
+	\\
+	Jonathan Monreal (jem177)
+	\bigskip
+	\bigskip
+	\\
+	\begin{dq}
+		
+		\bigskip
+		
+		\begin{q1}
+			\\
+			\textbf{
+				Which modules can you easily reuse from your previous designs? What improvements do
+				you need to make to successfully complete or update the modules?	
+			}
+			
+		\end{q1}
+		
+		\bigskip
+		
+		\begin{a1}
+			
+			We can reuse a majority of the modules from lab 3 and lab 5.\\
+			
+			From Lab 3 we have mult, shiftreg, slow\_down, sync\_clk, and values modules\\
+			
+			From Lab 5 we have button\_clock\_generator, char\_displayer, char\_ram, input\_handler, loader, video\_controller, and video\_position\_sync
+			
+			Most of the modules just needed a few tweaks so that they could function together, but besides that they were left almost intact\\
+			
+			Our new modules are char\_displayer, second\_clock\_gen, timer, video\_controller, and video\_position\_sync\\
+			
+			
+		\end{a1}
+		
+		\bigskip
+		
+		\begin{q2}
+			\\
+			\textbf{
+				Convert the specifications given above and in lecture into your own written description.
+				Draw a simple data-flow block diagram to illustrate the overall design. What sequence of
+				implementation do you plan to use? Give a list of modules you want to implement	
+			}
+		\end{q2}
+		
+		\bigskip
+		
+		\begin{a2}
+			
+			mult\\
+			shiftreg\\
+			slow\_down\\
+			sync\_clk\\
+			values\\
+			
+			button\_clock\_generator\\
+			char\_displayer\\
+			char\_ram input\_handler\\
+			loader\\
+			video\_controller\\
+			video\_position\_sync\\
+			
+
+			char\_displayer\\
+			second\_clock\_gen timer\\
+			video\_controller\\
+			video\_position\_sync\\
+			
+			We plan to implement everything to be displayed on the actual LCD first before we begin to work on the alarm functionality of the project which will implement the DAC and sounds functionality. 
+			
+			See attached diagrams for the block diagram.\\
+		
+		\end{a2}
+		
+		\bigskip
+		
+		\begin{q4}
+			\\
+			\textbf{
+				List the modules your group plans to utilize in the project implementation and sketch a
+				bare-bones block diagram that indicates which modules will have connections.			
+				}
+		\end{q4}
+		
+		\bigskip
+		
+		\begin{a4}
+		  	mult\\
+		  	shiftreg\\
+		  	slow\_down\\
+		  	sync\_clk\\
+		  	values\\
+		  	
+		  	button\_clock\_generator\\
+		  	char\_displayer\\
+		  	char\_ram input\_handler\\
+		  	loader\\
+		  	video\_controller\\
+		  	video\_position\_sync\\
+		  	
+		  	second\_clock\_gen timer\\
+		  	
+		  	See attached block diagram.\\
+		  	
+		\end{a4}
+		
+		\bigskip
+		
+		\begin{q5}
+			\\
+			\textbf{
+				What is the planned distribution of implementation and documentation work between the
+				group members for this lab?		
+			}
+		\end{q5}
+		
+		\bigskip
+		
+		\begin{a5}
+			
+			We plan to distribute the work based on who did the majority of the work for each lab.
+			So anything related to the DAC and audio would be worked on by Andrew. 
+			Anything related to the LCD display would be worked on by Jonathan. 
+			The lab report and any of the new code would be worked on in a collaborative effort. 
+
+		\end{a5}
+		
+		\bigskip		
+			
+		
+	\end{dq}
+	
+	\begin{req}
+		
+		\bigskip
+		
+		\begin{r1}
+			\\
+			\textbf{
+				Give a brief summary of the whole lab’s implementation. This is a sort of high-level
+				preview of the system calling out what technology is used and the resultant functionality.
+				Briefly mention any differences between implementation and specification here.
+			}
+		\end{r1}
+		
+		\bigskip
+		
+		\begin{ra1}
+			Our lab will be a 24 hour timer which can go up 23 hours and 59 minutes. It can be set for a specific set of number of hours, minutes, and seconds all of which are displayed on the lcd display screen.  There is also an alarm mode which will change the lcd display to red and once the timer reaches zero. There is a reset function attached to KEY0\\
+			
+		\end{ra1}
+		
+		\bigskip
+		
+		\begin{r2}
+			\\
+			\textbf{
+				Present the block diagram of your design. Briefly explain the module
+				organization/hierarchy and how data flows through the system.
+			}
+		\end{r2}
+		
+		\bigskip
+		
+		\begin{ra2}
+			
+			See attached block diagram.\\
+		\end{ra2}
+		
+		\bigskip
+		
+		\begin{r3}
+			\\
+			\textbf{
+				For each module in the project, document its interface, intended behavior, and the
+				functionality it implements. Use a mixture of SignalTap captures, analog/digital
+				oscilloscope captures, and text to develop a complete description of the module. Use
+				captures judiciously; simple functionality needs only a simple description and may be
+				excessively lengthened or made confusing by the inclusion of waveform captures. Both
+				SignalTap and oscilloscope captures must be used
+			}
+		\end{r3}
+		
+		\bigskip
+		
+		\begin{ra3}
+			
+				mult- Will multiply output from the DAC\\
+				shiftreg- Shift all of the DAC output by 1 bit to the right and replaces the shifted bit with a zero\\
+				slow\_down - slows the clock down for the DAC to be synced\\
+				sync\_clk - used to sync the clock with the NCO clock in order for them to match one another\\
+				values -  gets the values from the NCO and converts them over to values that can be displayed\\
+				
+				char\_displayer - display the characters drawn out and places them on the LCD\\
+				loader- loads the display from the ROM\\
+				video\_controller - controls the refresh rate and the what is displayed onto the clock\\
+				video\_position\_sync - assigns the characters over to certain positions on the screen\\
+				
+				second\_clock\_gen timer - generates the clock which will be used by the timer on the actual LCD display\\
+				
+		\end{ra3}
+		
+	\end{req}
+	
+	
+\end{document}

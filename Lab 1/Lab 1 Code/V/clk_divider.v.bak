@@ -1,0 +1,12 @@
+module clk_divider(clk, reset, slow_clk);
+
+	input clk, reset;
+	output reg slow_clk;
+	
+	localparam division_bits = 20;
+	
+	always @(posedge clk, posedge reset)
+		if (reset == 1) count <= 0;
+		else count <= count + 1;
+
+endmodule

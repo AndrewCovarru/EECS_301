@@ -1,0 +1,2 @@
+Warning (10268): Verilog HDL information at up_down_counter.v(6): always construct contains both blocking and non-blocking assignments File: C:/Users/Jonathan/Desktop/Dropbox/EECS301/Lab 2/Lab 2 Code/V/up_down_counter.v Line: 6
+Warning (10268): Verilog HDL information at flipflops.v(8): always construct contains both blocking and non-blocking assignments File: C:/Users/Jonathan/Desktop/Dropbox/EECS301/Lab 2/Lab 2 Code/V/flipflops.v Line: 8

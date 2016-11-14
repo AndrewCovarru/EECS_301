@@ -1,0 +1,109 @@
+\documentclass[letterpaper, 10pt]{article}
+
+\usepackage{fancyhdr}
+\usepackage[left=2.35cm,top=2.45cm,bottom=2.45cm,right=2.35cm,letterpaper]{geometry}
+\usepackage{amsmath}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C,CO]{\thepage}
+\fancyhead[L,LO]{\bfseries EECS 301}
+\fancyhead[C,CO]{\bfseries Lab 1}
+\fancyhead[R,RO]{Summer 2016}
+
+	\newenvironment{dq}{\textbf{Design Questions}}
+	
+	\newenvironment{q1}{\noindent Question 1:}
+	
+	\newenvironment{a1}{\noindent}
+	
+	\newenvironment{q2}{\noindent Question 2:}
+	
+	\newenvironment{a2}{\noindent}
+	
+	\newenvironment{q3}{\noindent Question 3:}
+	
+	\newenvironment{a3}{\noindent}
+	
+	\newenvironment{q4}{\noindent Question 4:}
+	
+	\newenvironment{a4}{\noindent}
+
+\begin{document}
+	\noindent
+	Andrew Covarrubias (axc554)
+	\\
+	Jonathan Monreal (jem177)
+	\bigskip
+	\bigskip
+	\\
+	\begin{dq}
+		
+		\bigskip
+		
+		\begin{q1}
+			\\
+			\textbf{
+			How many states did you use for each machine? How did you choose what these states
+			were? Consider using sub-states to achieve the multi-cycle delay before transitioning out
+			of a state (e.g. left\_signal\_three\_lights\_0, left\_signal\_three\_lights\_1,
+			left\_signal\_three\_lights\_2).}
+			
+		\end{q1}
+		
+		\bigskip
+		
+		\begin{a1}
+			The brake machine has 3 states in total. idle, break1, and break2 \\
+			The turn signal machine has 22 states in total. IDLE, ERROR\_STATE, left with 10 sub-states, and right with 10 sub-states.\\
+			The states names were given in the assignment and the sub-state names were reasonable names. 
+			
+		\end{a1}
+		
+		\bigskip
+		
+		\begin{q2}
+			\\
+			\textbf{
+			How many bits did you use in the counter to generate the ~3Hz clock?}
+		\end{q2}
+		
+		\bigskip
+		
+		\begin{a2}
+			In order to get the clock from 50 MHz we used division by the powers of two to get 23 bits. From 2\textsuperscript{24} = 16777216, multiplying by 3 we get 50331648 which is close to 50 MHz
+		\end{a2}
+		
+		\bigskip
+		
+		\begin{q3}
+			\\
+			\textbf{Which I/O signals that you need on the DE1-SoC development board are active-low?}
+		\end{q3}
+		
+		\bigskip
+		
+		\begin{a3}
+			The buttons and hex displays are the only active low components we used in this lab. 
+		\end{a3}
+		
+		\bigskip
+		
+		\begin{q4}
+			\\
+			\textbf{How did you verify that you correctly implemented the Verilog state machine syntax in the Quartus software?}
+		\end{q4}
+		
+		\bigskip
+		
+		\begin{a4}
+			We were able to verify the state machine diagram by bringing up the state machine diagram feature in Quartus.
+		\end{a4}
+		
+		\bigskip
+		
+		
+	\end{dq}
+	
+	
+\end{document}
